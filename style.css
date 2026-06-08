@@ -6,13 +6,20 @@ body {
 .jumbotron {
   padding-top: 6rem;
   background-color: #e2edff;
+  position: relative;
+  overflow: hidden;
 }
-.imgku {
-  height: 20rem;
-  filter: grayscale(100);
-}
-.imgku:hover {
-  filter: grayscale(0);
+/* Membuat lingkaran dekoratif samar di latar belakang */
+.jumbotron::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(13, 110, 253, 0.05); /* Warna biru Bootstrap dengan transparansi 5% */
+  border-radius: 50%;
+  bottom: 10%;
+  left: 15%;
+  z-index: 0;
 }
 
 #projects {
@@ -47,29 +54,12 @@ section {
   background-color: #e9ecef;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
-.progress-bar {
-  border-radius: 10px;
-}
-
-#skills h2 {
-  position: relative;
-  padding-bottom: 15px;
-}
-
-#skills h2::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 3px;
-  background-color: #0d6efd;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
 /* typing teks style */
 #typing {
   color: #0d6efd; /* Memberi warna biru khas Bootstrap */
   font-weight: bold;
-  border-bottom: 1px solid #0d6efd; /* Memberi garis bawah agar lebih menonjol */
+}
+.tracking-wide {
+  letter-spacing: 7.5px !important; /* Anda bisa ubah nilainya sesuai selera */
+  word-wrap: break-word;
 }
