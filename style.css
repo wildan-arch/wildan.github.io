@@ -64,3 +64,9 @@ section {
   letter-spacing: 7.5px !important; /* Anda bisa ubah nilainya sesuai selera */
   word-wrap: break-word;
 }
+/* Efek untuk memburamkan konten proyek */
+.filter-blur {
+  filter: blur(0.5px);
+  pointer-events: none; /*Mencegah tombol di dalam blur bisa diklik */
+  user-select: none; /* Mencegah teks di dalam blur bisa diblok/disalin */
+}
