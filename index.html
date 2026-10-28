@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@
   </head>
   <body id="home" class="pt-5">
     <!-- Navbar -->
-    <nav class="navbar d-flex align-items-center justify-content-center navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top my-navbar">
+    <nav class="navbar d-flex align-items-center justify-content-center navbar-expand-lg navbar-dark shadow-sm fixed-top my-navbar ">
       <div class="container">
         <a class="navbar-brand fw-bold" href="#">Pamungkas</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,38 +47,91 @@
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
+            
+            <div class="d-inline-block">
+<button type="button" class="btn nav-link"
+        data-bs-toggle="popover"
+        data-bs-placement="bottom"
+        data-bs-trigger="focus"
+        data-bs-html="true"
+        data-bs-content='
+        <div class="mb-2 justify-content-center text-space-between d-flex flex-column align-items-center">
+          <span class="mb-2 fs-6">Pilih direktori yang ingin diakses</span>
+        </div>
+          <div class="row g-2">
+            <div class="col-6 ">
+              <a href="directory/index.html" class="card h-100 text-decoration-none card-hover-icon ">
+                <div class="card-body text-center p-2 ">
+                  <i class="bi bi-folder2 fs-3 text-primary  mb-1 card-icon "></i>
+                  <h6 class="card-title mb-1">Direktori Tugas</h6>
+                  <small class="text-muted">Arsip Kuliah</small>
+                </div>
+              </a>
+            </div>
+            
+            <div class="col-6">
+              <a href="#" class="card h-100 text-decoration-none card-hover-icon">
+                <div class="card-body text-center p-2">
+                  <i class="bi bi-file-earmark-person fs-3 text-success mb-1 card-icon"></i>
+                  <h6 class="card-title mb-1">CV & Transkrip</h6>
+                  <small class="text-muted">Dokumen Pribadi</small>
+                </div>
+              </a>
+            </div>
+          </div>
+        '>
+  <i class="bi bi-three-dots-vertical"></i>
+</button>
+</div>
+            
           </ul>
+
+          <button id="themeToggle" class="btn btn-primary ms-lg-3" type="button" aria-label="Ganti tema">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
         </div>
       </div>
     </nav>
     <!-- Akhir Navbar -->
 
+
+    <!-- POPOVER  -->
+     <div class="absolute top-0 right-0 z-10" id="my-popover" popover data-bs-container="body" data-bs-placement="bottom" data-bs-trigger="focus" data-bs-content="Klik tombol di bawah untuk mengakses direktori tugas saya.">
+      <button type="button" class="btn-primary">
+        direktori tugas 
+      </button> 
+     
+     </div>
+
     <!-- Jumbotron -->
-    <section class="jumbotron bg-light pt-5">
+    <section class="jumbotron bg-body-tertiary pt-5">
       <div class="container pt-5">
         <div class="row align-items-center justify-content-center min-vh-75 py-5">
           <!-- Text Column -->
           <div class="col-md-6 text-center text-md-start mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1000">
-            <h1 class="mb-3 fw-bold display-4 tracking-wide">Hello, I am Pamungkas</h1>
+            <h1>Halo, saya <span class="gradient">Pamungkas Wildan</span></h1>
             <p class="lead fs-4"><strong>I am a </strong><span id="typing" class="text-primary fw-bold text-capitalize typing-text"></span></p>
             <div class="sosmed mt-4 mb-5 mb-sm-5">
               <a href="#contact" class="btn btn-primary btn-lg shadow-sm">Let's Talk</a>
               <div class="sosmed-icons mt-4 fs-3">
                 <a href="https://github.com/wildan-arch" target="_blank" class="text-secondary me-3"><i class="bi bi-github text-dark-hover"></i></a>
-                <a href="" target="_blank" id="linkedin" class="text-secondary me-3"><i class="bi bi-linkedin"></i></a>
-                <a href="https://www.instagram.com/mas_danfp/" target="_blank" class="text-secondary"><i class="bi bi-instagram"></i></a>
+                <a href="" target="_blank" id="linkedin" class="text-secondary me-3"><i class="bi bi-linkedin text-dark-hover"></i></a>
+                <a href="https://www.instagram.com/mas_danfp/" target="_blank" class="text-secondary"><i class="bi bi-instagram text-dark-hover"></i></a>
               </div>
             </div>
           </div>
           <!-- Image Column -->
-          <div class="col-md-6 text-center" data-aos="fade-left" data-aos-duration="1000">
-            <img src="img/wildan3.jpg" alt="Wildan Fajar" class="img-fluid rounded-circle border border-5 border-white shadow-lg mx-auto d-block" style="width: 280px; height: 280px; object-fit: cover" />
+          <div class="col-md-6 text-center hero-photo-wrap">
+            <div class="hero-photo">
+              <img src="img/wildan3.jpg" alt="Wildan Fajar" />
+            </div>
           </div>
         </div>
       </div>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
+          id="heroWavePath"
           fill="#ffffff"
           fill-opacity="1"
           d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,192C960,224,1056,256,1152,229.3C1248,203,1344,117,1392,74.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
@@ -88,7 +141,7 @@
     <!-- Akhir Jumbotron -->
 
     <!-- About Me -->
-    <section id="about" class="py-5" style="background-color: #ffffff">
+    <section id="about" class="py-5">
       <div class="container">
         <div class="row text-center mb-5">
           <div class="col">
@@ -99,7 +152,7 @@
 
         <div class="row justify-content-center g-4 text-center">
           <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
-            <div class="p-4 rounded-4 shadow-sm bg-light h-100 border border-1">
+            <div class="p-4 rounded-4 shadow-sm bg-body-tertiary h-100 border border-1">
               <i class="bi bi-mortarboard text-primary mb-3 d-inline-block" style="font-size: 2.5rem"></i>
               <h4 class="fw-bold mb-2">Pendidikan</h4>
               <p class="text-muted fs-6">Mahasiswa Teknik Informatika (Semester 2). Sedang giat mendalami logika dasar pemrograman, struktur data, dan rekayasa perangkat lunak.</p>
@@ -107,7 +160,7 @@
           </div>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <div class="p-4 rounded-4 shadow-sm bg-light h-100 border border-1">
+            <div class="p-4 rounded-4 shadow-sm bg-body-tertiary h-100 border border-1">
               <i class="bi bi-briefcase text-success mb-3 d-inline-block" style="font-size: 2.5rem"></i>
               <h4 class="fw-bold mb-2">Pengalaman</h4>
               <p class="text-muted fs-6">Berpengalaman aktif sebagai staff farmasi. Mengasah kemampuan *problem-solving* langsung di lapangan, manajemen stok, dan pelayanan regulasi medis.</p>
@@ -115,7 +168,7 @@
           </div>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <div class="p-4 rounded-4 shadow-sm bg-light h-100 border border-1">
+            <div class="p-4 rounded-4 shadow-sm bg-body-tertiary h-100 border border-1">
               <i class="bi bi-heart-pulse text-danger mb-3 d-inline-block" style="font-size: 2.5rem"></i>
               <h4 class="fw-bold mb-2">Etos Kerja</h4>
               <p class="text-muted fs-6">Kombinasi unik antara ketelitian mutlak dari latar belakang farmasi dengan ketajaman logika berpikir dari dunia IT untuk menghasilkan produk yang presisi.</p>
@@ -127,7 +180,7 @@
     <!-- Akhir About Me -->
 
     <!-- Projects -->
-    <section id="projects" class="py-5" style="background-color: #ffffff">
+    <section id="projects" class="py-5">
       <div class="container">
         <div class="row text-center mb-5">
           <div class="col">
@@ -141,7 +194,7 @@
               <div class="card h-100 shadow-sm border-0 overflow-hidden" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                 <div class="position-relative">
                   <img src="img/projects/1.jpeg" class="card-img-top" alt="BaseNum Converter" style="height: 200px; object-fit: cover" />
-                  <span class="position-absolute top-0 start-0 bg-dark text-white px-3 py-1 m-3 rounded-pill small fw-semibold">Computer Science</span>
+                  <span class="position-absolute top-0 start-0 bg-secondary text-white px-3 py-1 m-3 rounded-pill small fw-semibold bg-secondary">Computer Science</span>
                 </div>
                 <div class="card-body d-flex flex-column">
                   <h5 class="card-title fw-bold mb-2">BaseNum Converter</h5>
@@ -209,8 +262,8 @@
                   </div>
                 </div>
 
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-white bg-opacity-75" style="z-index: 2; pointer-events: none">
-                  <span class="fw-bold text-dark fs-3 text-uppercase" style="letter-spacing: 2px">Coming Soon</span>
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-body bg-opacity-75" style="z-index: 2; pointer-events: none">
+                  <span class="fw-bold text-body fs-3 text-uppercase" style="letter-spacing: 2px">Coming Soon</span>
                 </div>
               </div>
             </div>
@@ -227,32 +280,32 @@
 
           <div class="row g-4 justify-content-center text-center">
             <div class="col-6 col-sm-4 col-md-2">
-              <div class="p-3 bg-white rounded shadow-sm border h-100">
+              <div class="p-3 rounded shadow-sm border h-100 bg-body-tertiary">
                 <i class="bi bi-filetype-html text-danger" style="font-size: 3rem"></i>
                 <p class="fw-bold mb-0 mt-2">HTML5</p>
               </div>
             </div>
             <div class="col-6 col-sm-4 col-md-2">
-              <div class="p-3 bg-white rounded shadow-sm border h-100">
+              <div class="p-3 rounded shadow-sm border h-100 bg-body-tertiary">
                 <i class="bi bi-bootstrap-fill text-purple" style="font-size: 3rem; color: #7952b3"></i>
                 <p class="fw-bold mb-0 mt-2">Bootstrap</p>
               </div>
             </div>
             <div class="col-6 col-sm-4 col-md-2">
-              <div class="p-3 bg-white rounded shadow-sm border h-100">
+              <div class="p-3 rounded shadow-sm border h-100 bg-body-tertiary">
                 <i class="bi bi-filetype-js text-warning" style="font-size: 3rem"></i>
                 <p class="fw-bold mb-0 mt-2">JavaScript</p>
               </div>
             </div>
             <div class="col-6 col-sm-4 col-md-2">
-              <div class="p-3 bg-white rounded shadow-sm border h-100">
+              <div class="p-3 bg-white rounded shadow-sm border h-100 bg-body-tertiary">
                 <i class="bi bi-node-plus-fill text-success" style="font-size: 3rem"></i>
                 <p class="fw-bold mb-0 mt-2">Node.js</p>
               </div>
             </div>
             <div class="col-6 col-sm-4 col-md-2">
-              <div class="p-3 bg-white rounded shadow-sm border h-100">
-                <i class="bi bi-github text-dark" style="font-size: 3rem"></i>
+              <div class="p-3 rounded shadow-sm border h-100 bg-body-tertiary">
+                <i class="bi bi-github text-body" style="font-size: 3rem"></i>
                 <p class="fw-bold mb-0 mt-2">Git & GitHub</p>
               </div>
             </div>
@@ -264,7 +317,7 @@
     <!-- Akhir Projects -->
 
     <!-- Journey -->
-    <section id="journey" class="py-5" style="background-color: #f8f9fa">
+    <section id="journey" class="py-5 bg-body-tertiary">
       <div class="container">
         <div class="row text-center mb-5">
           <div class="col">
@@ -275,7 +328,7 @@
 
         <div class="row justify-content-center">
           <div class="col-md-8">
-            <div class="p-4 bg-white rounded-4 shadow-sm mb-4 border-start border-primary border-4" data-aos="fade-left">
+            <div class="p-4 bg-body rounded-4 shadow-sm mb-4 border-start border-primary border-4" data-aos="fade-left">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <h5 class="fw-bold text-primary mb-0"><i class="bi bi-mortarboard-fill me-2"></i>Teknik Informatika</h5>
                 <span class="badge bg-primary rounded-pill">2023 - Sekarang</span>
@@ -283,7 +336,7 @@
               <p class="text-muted small mb-0">Menempuh pendidikan sarjana, fokus mempelajari dasar-dasar algoritma, pemrograman web (HTML, CSS, JS), struktur data, dan arsitektur komputer dasar.</p>
             </div>
 
-            <div class="p-4 bg-white rounded-4 shadow-sm mb-4 border-start border-success border-4" data-aos="fade-left" data-aos-delay="200">
+            <div class="p-4 bg-body rounded-4 shadow-sm mb-4 border-start border-success border-4" data-aos="fade-left" data-aos-delay="200">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <h5 class="fw-bold text-success mb-0"><i class="bi bi-capsule me-2"></i>Staff Farmasi & Pelayanan</h5>
                 <span class="badge bg-success rounded-pill">Profesional</span>
@@ -291,13 +344,13 @@
               <p class="text-muted small mb-0">Aktif bekerja di bidang kefarmasian. Pengalaman ini mengasah ketelitian tingkat tinggi, manajemen inventaris obat yang ketat, dan komunikasi langsung dengan pasien/klien.</p>
             </div>
 
-            <div class="p-4 bg-white rounded-4 shadow-sm border-start border-warning border-4" data-aos="fade-left" data-aos-delay="400">
+            <div class="p-4 bg-body rounded-4 shadow-sm border-start border-warning border-4" data-aos="fade-left" data-aos-delay="400">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <h5 class="fw-bold text-warning text-dark mb-0"><i class="bi bi-code-slash me-2"></i>Web Development Exploration</h5>
                 <span class="badge bg-warning text-dark rounded-pill">Eksplorasi Mandiri</span>
               </div>
               <p class="text-muted small mb-0">
-                Membangun proyek-proyek *logic-based* sederhana seperti aplikasi konverter sistem bilangan komputer, kalkulator digital, serta mendalami integrasi Bootstrap 5 untuk tampilan UI yang responsif.
+                Membangun proyek-proyek <em>logic-based</em> sederhana seperti aplikasi konverter sistem bilangan komputer, kalkulator digital, serta mendalami integrasi Bootstrap 5 untuk tampilan UI yang responsif.
               </p>
             </div>
           </div>
@@ -315,7 +368,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-6 bg-light p-4 rounded shadow-sm">
+          <div class="col-md-6 bg-body-secondary p-4 rounded shadow-sm">
             <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
               <strong>Terima Kasih!</strong> Pesan Anda sudah kami terima.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -341,6 +394,42 @@
     </section>
     <!-- Akhir Contact -->
 
+    <!-- KOTAK SARA DARI PENGUNJUNG -->
+ <!-- Tombol Melayang -->
+<div class="fab-container">
+  <button type="button" class="fab-btn" data-bs-toggle="modal" data-bs-target="#saranModal" title="Beri Saran">
+    <i class="bi bi-envelope-paper-fill"></i>
+  </button>
+</div>
+
+<!-- Modal Form Saran -->
+<div class="modal fade" id="saranModal" tabindex="-1" aria-labelledby="saranModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title fw-bold" id="saranModalLabel"><i class="bi bi-chat-left-text me-2"></i>Kotak Saran</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="saranForm" method="post">
+          <div class="mb-3">
+            <label for="nama" class="form-label fw-semibold">Nama Kamu</label>
+            <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan nama...">
+          </div>
+          <div class="mb-3">
+            <label for="pesan" class="form-label fw-semibold">Pesan / Saran</label>
+            <textarea class="form-control" name="pesan" id="pesan" rows="4" placeholder="Tulis saran atau pertanyaanmu di sini..." required></textarea>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal" >Batal</button>
+            <button type="submit" class="btn btn-primary" id="submitSaran",><i class="bi bi-send me-1"></i> Kirim Pesan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Footer -->
     <footer class="bg-primary text-white text-center">
       <p class="fw-semibold mb-0 py-4">
@@ -348,6 +437,11 @@
       </p>
     </footer>
     <!-- Akhir Footer -->
+
+
+
+
+
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

@@ -1,6 +1,6 @@
 // GSAP Animation
 gsap.from(".navbar", { duration: 1.5, y: "-100%", opacity: 0, ease: "bounce" });
-gsap.from(".jumbotron img", { duration: 2, y: -200, ease: "bounce" });
+gsap.from(".jumbotron", { duration: 2, y: -200, ease: "bounce" });
 gsap.from("#jsBar", {
   width: "0%",
   duration: 3,
@@ -63,3 +63,91 @@ const linkedin = document.getElementById("linkedin");
 linkedin.addEventListener("click", () => {
   alert("Linkedin Belum tersedia, Terimakasih!");
 });
+
+/* ============ DARK MODE TOGGLE ============ */
+(function () {
+  const html = document.documentElement;
+  const toggleBtn = document.getElementById("themeToggle");
+
+  // Tentukan tema awal: localStorage > preferensi sistem > light
+  const savedTheme = localStorage.getItem("theme");
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = savedTheme || (systemDark ? "dark" : "light");
+
+  applyTheme(initialTheme);
+
+  toggleBtn.addEventListener("click", () => {
+    const current = html.getAttribute("data-bs-theme");
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+    localStorage.setItem("theme", next);
+  });
+
+  function applyTheme(theme) {
+    html.setAttribute("data-bs-theme", theme);
+    const icon = toggleBtn.querySelector("i");
+    icon.className = theme === "dark" ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
+  }
+})();
+
+
+// popover
+document.querySelectorAll('[data-bs-toggle="popover"]')
+  .forEach(el => new bootstrap.Popover(el));
+
+
+  // =============================================================
+  // SCRIPT SARAN FORM
+  // =============================================================
+const scriptUrlSaran = 'https://script.google.com/macros/s/AKfycbwv1OBCLFealpu4z8SD7sMWGIZlr3Xs97ymJVMuEgqXsx6a9SGul4IpKxMG5cbNaM0/exec'; 
+const formSaran = document.getElementById('saranForm');
+
+if (formSaran) {
+  formSaran.addEventListener('submit', function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+
+    const submitButton = document.getElementById('submitSaran');
+    const originalText = submitButton.innerHTML;
+    
+let inputNama = document.getElementById('nama').value.trim();
+
+if(inputNama === '') {
+  inputNama = 'Good People';
+  document.getElementById('nama').value = inputNama;
+
+}
+    // Ubah tombol jadi loading
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Mengirim...';
+
+    const formData = new FormData(formSaran);
+
+    formData.set('nama', inputNama);
+
+    fetch(scriptUrlSaran, { method: 'POST', body: formData })
+      .then(response => response.json())
+      .then(response => {
+        if(response.result === 'success') {
+          alert('Terima kasih! Saran kamu sudah terkirim.');
+          formSaran.reset(); // Kosongkan form
+          
+          // Tutup modal secara otomatis via Bootstrap JS
+          const modalElement = document.getElementById('saranModal');
+          const modalInstance = bootstrap.Modal.getInstance(modalElement);
+          if (modalInstance) modalInstance.hide();
+          
+        } else {
+          alert('Maaf, terjadi kesalahan: ' + response.error);
+        }
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('Gagal mengirim pesan. Cek koneksi internetmu.');
+      })
+      .finally(() => {
+        // Kembalikan tombol ke semula
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+      });
+  });
+}

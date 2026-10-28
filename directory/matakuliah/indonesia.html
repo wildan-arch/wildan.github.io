@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analisis Puisi - Tugas Bahasa Indonesia</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    body { background-color: #f4f6f9; }
+    
+    /* Membuat iframe PDF responsif */
+    .pdf-container {
+      position: relative;
+      width: 100%;
+      height: 75vh; /* 75% dari tinggi layar */
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dee2e6;
+      background-color: #e9ecef;
+    }
+    
+    .pdf-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger mb-4 shadow-sm">
+    <div class="container">
+      <!-- Kembali ke halaman daftar tugas -->
+      <a class="navbar-brand fw-bold" href="../index.html">
+        <i class="bi bi-arrow-left me-2"></i>Kembali ke Daftar Tugas
+      </a>
+    </div>
+  </nav>
+
+  <!-- Konten Utama -->
+  <main class="container mb-5">
+    <!-- Header Tugas -->
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+          <div>
+            <span class="badge bg-danger bg-opacity-10 text-danger border border-danger mb-2">Bahasa Indonesia</span>
+            <h1 class="fw-bold mb-1">Tugas 1: Analisis Makna Puisi "Aku"</h1>
+            <p class="text-muted mb-0"><i class="bi bi-person me-1"></i>Pamungkas &nbsp;|&nbsp; <i class="bi bi-calendar-event me-1"></i>Dikumpulkan: 15 Okt 2026</p>
+          </div>
+          <!-- Tombol Download -->
+          <a href="tugas-bindo.pdf" class="btn btn-danger" download>
+            <i class="bi bi-download me-1"></i> Unduh PDF
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Abstrak / Pendahuluan -->
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body p-4">
+        <h5 class="fw-bold border-bottom pb-2 mb-3">Abstrak</h5>
+        <p class="text-muted mb-0" style="line-height: 1.8; text-align: justify;">
+          Tugas ini menganalisis penggunaan diksi, rima, dan makna tersirat dalam puisi berjudul "Aku" karya Chairil Anwar. Analisis difokuskan pada bagaimana sang penyair mengekspresikan semangat individualisme dan pemberontakan melalui pilihan kata yang tajam dan padat. Hasil analisis menunjukkan bahwa puisi ini tidak hanya sekadar karya sastra, tetapi juga refleksi dari kondisi sosial pada masa itu.
+        </p>
+      </div>
+    </div>
+
+    <!-- Embed PDF / Google Docs -->
+    <h5 class="fw-bold mb-3"><i class="bi bi-file-earmark-pdf text-danger me-2"></i>Dokumen Lengkap</h5>
+    
+    <div class="pdf-container mb-4 shadow-sm">
+      <!-- 
+        CARA PASANG:
+        1. Jika pakai file lokal (satu folder): ganti src dengan "tugas-bindo.pdf"
+        2. Jika pakai Google Drive: ganti src dengan link /preview 
+           contoh: src="https://drive.google.com/file/d/1ABC123xyz/preview"
+      -->
+      <iframe src="https://docs.google.com/document/d/1ksL2c050Mkgr52n7iTpoWZvPgDYZ_625hgXsR1hfoaI/preview" allow="autoplay"></iframe>
+    </div>
+    
+    <!-- Tombol Download di Bawah -->
+    <div class="text-center">
+      <a href="https://docs.google.com/document/d/1ksL2c050Mkgr52n7iTpoWZvPgDYZ_625hgXsR1hfoaI/view" target="_blank" class="btn btn-outline-danger btn-lg px-5">
+        <i class="bi bi-box-arrow-up-right me-2"></i>Buka di Tab Baru
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

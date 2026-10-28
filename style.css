@@ -15,16 +15,38 @@ body {
   position: absolute;
   width: 300px;
   height: 300px;
-  background: rgba(13, 110, 253, 0.05); /* Warna biru Bootstrap dengan transparansi 5% */
+  background: rgba(
+    13,
+    110,
+    253,
+    0.05
+  ); /* Warna biru Bootstrap dengan transparansi 5% */
   border-radius: 50%;
   bottom: 10%;
   left: 15%;
   z-index: 0;
 }
 
-#projects {
-  background-color: #e2edff;
+[data-bs-theme="light"] .hero-wave path {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
 }
+[data-bs-theme="dark"] .hero-wave path {
+  fill: #212529;
+  transition: fill 0.3s ease;
+}
+/* icon hover sosmed */
+.text-dark-hover {
+  color: var(--bs-secondary-color);
+  transition: 0.3s;
+}
+.text-dark-hover:hover {
+  color: var(--bs-body-color);
+}
+
+/* #projects {
+  background-color: #e2edff;
+} */
 
 section {
   scroll-margin-top: 70px;
@@ -38,16 +60,22 @@ section {
   padding: 0;
 }
 
+/* Navbar dasar (berlaku untuk semua tema) */
 .my-navbar {
-  /* Menggunakan warna biru dengan transparansi (alpha) */
-  background-color: rgba(13, 110, 253, 0.7) !important;
-
-  /* Efek blur pada objek di belakang navbar */
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* Untuk dukungan Safari */
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
+}
 
-  /* Tambahkan sedikit garis bawah tipis agar lebih elegan */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Light mode → BIRU (bg-primary) */
+[data-bs-theme="light"] .my-navbar {
+  background-color: rgba(13, 110, 253, 0.85) !important; /* biru primary */
+  color: #fff !important;
+}
+
+/* Dark mode → GELAP */
+[data-bs-theme="dark"] .my-navbar {
+  background-color: rgba(33, 37, 41, 0.85) !important; /* abu gelap */
 }
 /* skills style */
 .progress {
@@ -70,3 +98,101 @@ section {
   pointer-events: none; /*Mencegah tombol di dalam blur bisa diklik */
   user-select: none; /* Mencegah teks di dalam blur bisa diblok/disalin */
 }
+
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.hero-photo {
+  width: 320px;
+  height: 320px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 30px 80px rgba(108, 92, 231, 0.4);
+  animation: morph 4s ease-in-out infinite;
+  overflow: hidden;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  50% {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  }
+}
+
+.card-icon {
+  display: inline-block;
+  transition: transform .25s ease-in-out;
+}
+
+.card-hover-icon:hover .card-icon {
+   transform: scale(1.3) !important;
+}
+
+
+/* STYLE KOTAK SARAN */
+  /* --- STYLE TOMBOL MELAYANG --- */
+  .fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1050; /* Agar selalu di atas konten lain */
+  }
+
+  .fab-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #086288;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+  }
+
+  /* Efek saat di-hover */
+  .fab-btn:hover {
+    background-color: #075475;;
+    color: white;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(8, 98, 136, 0.6);
+  }
+
+  /* Animasi denyut (Pulse) untuk menarik perhatian */
+  .fab-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color:#075475;
+    opacity: 0.6;
+    z-index: -1;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.3); opacity: 0; }
+  }
+
