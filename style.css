@@ -1,6 +1,9 @@
+html,
 body {
-  min-height: 3000px;
+  overflow-x: hidden;
+  width: 100%;
   font-family: "google sans";
+  position: relative;
 }
 
 .jumbotron {
@@ -136,63 +139,74 @@ section {
 
 .card-icon {
   display: inline-block;
-  transition: transform .25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
 
 .card-hover-icon:hover .card-icon {
-   transform: scale(1.3) !important;
+  transform: scale(1.3) !important;
 }
 
-
 /* STYLE KOTAK SARAN */
-  /* --- STYLE TOMBOL MELAYANG --- */
-  .fab-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1050; /* Agar selalu di atas konten lain */
-  }
+/* --- STYLE TOMBOL MELAYANG --- */
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1050; /* Agar selalu di atas konten lain */
+}
 
-  .fab-btn {
-    width: 60px;
-    height: 60px;
-    background-color: #086288;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none;
-  }
+.fab-btn {
+  width: 60px;
+  height: 60px;
+  background-color: #086288;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+}
 
-  /* Efek saat di-hover */
-  .fab-btn:hover {
-    background-color: #075475;;
-    color: white;
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 8px 25px rgba(8, 98, 136, 0.6);
-  }
+/* Efek saat di-hover */
+.fab-btn:hover {
+  background-color: #075475;
+  color: white;
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(8, 98, 136, 0.6);
+}
 
-  /* Animasi denyut (Pulse) untuk menarik perhatian */
-  .fab-btn::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color:#075475;
+/* Animasi denyut (Pulse) untuk menarik perhatian */
+.fab-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #075475;
+  opacity: 0.6;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
     opacity: 0.6;
-    z-index: -1;
-    animation: pulse 2s infinite;
   }
-
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(1.3); opacity: 0; }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
   }
+}
 
+.text-gradient {
+  background: linear-gradient(45deg, #0d6efd, #0dcaf0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

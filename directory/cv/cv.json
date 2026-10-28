@@ -1,0 +1,90 @@
+{
+  "personal": {
+    "name": "Wildan Fajar Pamungkas",
+    "role": "Web Developer",
+    "location": "Jl. Argosuko Wangkal Lor, Kecamatan Poncokusumo, Kabupaten Malang",
+    "phone": "0822-3493-8250",
+    "email": "wildanfajar408@gmail.com",
+    "portfolio": "https://wildan-github-io.vercel.app/",
+    "github": "https://github.com/wildan",
+    "linkedin": "https://linkedin.com/in/wildanfajarpamungkas"
+  },
+  "summary": "Mahasiswa Teknik Informatika dengan pengalaman di bidang kefarmasian dan minat pada pengembangan web. Membangun proyek web menggunakan HTML, CSS, dan JavaScript, serta terbiasa mengubah kebutuhan pengguna menjadi solusi digital yang sederhana dan fungsional.",
+  "education": [
+    {
+      "school": "STT STIKMA Internasional",
+      "degree": "S1 Teknik Informatika",
+      "period": "2023 - Sekarang",
+      "description": "Fokus pada algoritma dan pemrograman, struktur data, pemrograman web, serta rekayasa perangkat lunak."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Apotek Shabah",
+      "position": "Staff Farmasi & Pelayanan",
+      "period": "2023 - Sekarang",
+      "description": "Memberikan pelayanan pelanggan, mengelola stok obat, dan membantu kebutuhan informasi produk kesehatan."
+    }
+  ],
+  "skills": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Vue.js",
+    "React",
+    "Bootstrap",
+    "Node.js",
+    "Supabase",
+    "MongoDB",
+    "Git",
+    "GitHub",
+    "Visual Studio Code"
+  ],
+  "projects": [
+    {
+      "title": "Apotek Shabah Digital Page",
+      "category": "Landing Page",
+      "stack": ["HTML", "CSS", "JavaScript"],
+      "description": "Landing page responsif untuk apotek yang menampilkan informasi layanan kefarmasian, katalog produk kesehatan, dan tombol pemesanan resep digital.",
+      "link": "#"
+    },
+    {
+      "title": "BaseNum Converter",
+      "category": "Computer Science",
+      "stack": ["JavaScript"],
+      "description": "Aplikasi web untuk konversi bilangan Biner, Oktal, Desimal, dan Heksadesimal secara interaktif.",
+      "link": "#"
+    },
+    {
+      "title": "ThermoCalc Studio",
+      "category": "Web Application",
+      "stack": ["JavaScript"],
+      "description": "Aplikasi konversi suhu multi-satuan secara real-time dengan perhitungan formula matematika dan manipulasi DOM.",
+      "link": "#"
+    },
+    {
+      "title": "CalcUp! Digital",
+      "category": "Front-End",
+      "stack": ["HTML", "CSS", "JavaScript"],
+      "description": "Kalkulator web dengan antarmuka bersih dan responsif untuk operasi aritmatika dasar.",
+      "link": "#"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Web Development Fundamentals",
+      "issuer": "CodePolitan",
+      "year": "2025"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Bahasa Indonesia",
+      "level": "Native"
+    },
+    {
+      "name": "Bahasa Inggris",
+      "level": "Intermediate"
+    }
+  ]
+}

@@ -1,11 +1,6 @@
 // GSAP Animation
 gsap.from(".navbar", { duration: 1.5, y: "-100%", opacity: 0, ease: "bounce" });
 gsap.from(".jumbotron", { duration: 2, y: -200, ease: "bounce" });
-gsap.from("#jsBar", {
-  width: "0%",
-  duration: 3,
-  ease: "power2.out",
-});
 
 // AOS
 const galleryImage = document.querySelectorAll(".gallery-img");
@@ -19,14 +14,19 @@ AOS.init();
 
 // logika typing teks
 let typed = new Typed("#typing", {
-  strings: ["Informatics Engineering Student", "Pharmacy Staff", "Web Developer Enthusiast"],
+  strings: [
+    "Informatics Engineering Student",
+    "Pharmacy Staff",
+    "Web Developer Enthusiast",
+  ],
   typeSpeed: 50, // Kecepatan mengetik
   backSpeed: 30, // Kecepatan menghapus
   backDelay: 2000, // Waktu tunggu sebelum menghapus (2 detik)
   loop: true, // Mengulang terus menerus
 });
 // ============= Contact Form Google Sheet ==============
-const scriptURL = "https://script.google.com/macros/s/AKfycbyvrg4vvGy73_H2BB9FRMLgpZpHM1Ja_mbupX9hJ_T-QvEiAk6PBYMcFGXWlc1Z_0lA/exec";
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbyvrg4vvGy73_H2BB9FRMLgpZpHM1Ja_mbupX9hJ_T-QvEiAk6PBYMcFGXWlc1Z_0lA/exec";
 const form = document.forms["wildan-contact-form"];
 
 form.addEventListener("submit", (e) => {
@@ -86,63 +86,57 @@ linkedin.addEventListener("click", () => {
   function applyTheme(theme) {
     html.setAttribute("data-bs-theme", theme);
     const icon = toggleBtn.querySelector("i");
-    icon.className = theme === "dark" ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
+    icon.className =
+      theme === "dark" ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
   }
 })();
 
-
-// popover
-document.querySelectorAll('[data-bs-toggle="popover"]')
-  .forEach(el => new bootstrap.Popover(el));
-
-
-  // =============================================================
-  // SCRIPT SARAN FORM
-  // =============================================================
-const scriptUrlSaran = 'https://script.google.com/macros/s/AKfycbwv1OBCLFealpu4z8SD7sMWGIZlr3Xs97ymJVMuEgqXsx6a9SGul4IpKxMG5cbNaM0/exec'; 
-const formSaran = document.getElementById('saranForm');
+// =============================================================
+// SCRIPT SARAN FORM
+// =============================================================
+const scriptUrlSaran =
+  "https://script.google.com/macros/s/AKfycbwv1OBCLFealpu4z8SD7sMWGIZlr3Xs97ymJVMuEgqXsx6a9SGul4IpKxMG5cbNaM0/exec";
+const formSaran = document.getElementById("saranForm");
 
 if (formSaran) {
-  formSaran.addEventListener('submit', function(e) {
+  formSaran.addEventListener("submit", function (e) {
     e.preventDefault(); // Mencegah reload halaman
 
-    const submitButton = document.getElementById('submitSaran');
+    const submitButton = document.getElementById("submitSaran");
     const originalText = submitButton.innerHTML;
-    
-let inputNama = document.getElementById('nama').value.trim();
 
-if(inputNama === '') {
-  inputNama = 'Good People';
-  document.getElementById('nama').value = inputNama;
+    let inputNama = document.getElementById("nama").value.trim();
 
-}
+    if (inputNama === "") {
+      inputNama = "Good People";
+      document.getElementById("nama").value = inputNama;
+    }
     // Ubah tombol jadi loading
     submitButton.disabled = true;
-    submitButton.innerHTML = 'Mengirim...';
+    submitButton.innerHTML = "Mengirim...";
 
     const formData = new FormData(formSaran);
 
-    formData.set('nama', inputNama);
+    formData.set("nama", inputNama);
 
-    fetch(scriptUrlSaran, { method: 'POST', body: formData })
-      .then(response => response.json())
-      .then(response => {
-        if(response.result === 'success') {
-          alert('Terima kasih! Saran kamu sudah terkirim.');
+    fetch(scriptUrlSaran, { method: "POST", body: formData })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.result === "success") {
+          alert("Terima kasih! Saran kamu sudah terkirim.");
           formSaran.reset(); // Kosongkan form
-          
+
           // Tutup modal secara otomatis via Bootstrap JS
-          const modalElement = document.getElementById('saranModal');
+          const modalElement = document.getElementById("saranModal");
           const modalInstance = bootstrap.Modal.getInstance(modalElement);
           if (modalInstance) modalInstance.hide();
-          
         } else {
-          alert('Maaf, terjadi kesalahan: ' + response.error);
+          alert("Maaf, terjadi kesalahan: " + response.error);
         }
       })
-      .catch(error => {
-        console.error('Error!', error.message);
-        alert('Gagal mengirim pesan. Cek koneksi internetmu.');
+      .catch((error) => {
+        console.error("Error!", error.message);
+        alert("Gagal mengirim pesan. Cek koneksi internetmu.");
       })
       .finally(() => {
         // Kembalikan tombol ke semula
@@ -151,3 +145,36 @@ if(inputNama === '') {
       });
   });
 }
+
+// =============================================================
+// POPOVER
+// =============================================================
+
+const popoverTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="popover"]',
+);
+const popoverList = [...popoverTriggerList].map(
+  (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl),
+);
+
+// Tutup popover otomatis saat di-scroll
+window.addEventListener(
+  "scroll",
+  function () {
+    // Cari popover yang sedang terbuka
+    const openPopover = document.querySelector(".popover.show");
+
+    // Jika ada popover yang terbuka, klik tombolnya untuk menutup
+    if (openPopover) {
+      const trigger = document.querySelector('[data-bs-toggle="popover"]');
+      if (trigger) {
+        const popoverInstance = bootstrap.Popover.getInstance(trigger);
+        if (popoverInstance) {
+          popoverInstance.hide();
+        }
+        trigger.blur();
+      }
+    }
+  },
+  { passive: true },
+); // passive: true agar performa scroll tetap mulus
